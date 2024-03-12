@@ -25,28 +25,28 @@ function Home()
    }
     
  }
+ 
+
  useEffect(() => {
   console.log(category);
  
-  if (!filteredProducts || category == undefined) {
+  if (!filteredProducts || category == "undefined") {
     // If Products are not available yet, set filteredProducts to Products
     setFilteredProducts(Products);
   } 
-  else if (category !== undefined) {
+  if (category != "undefined") {
     // If a category is specified, fetch filtered products
-    getCategoryData();
+    //fetching categorized data from APi
+  //  getCategoryData();
+  //fetching Categorized from Local Storage
+
+     setFilteredProducts(Products.filter((elem,index)=> elem.category==category))
+
   }
 }, [category,Products]);
 
 
-// useEffect(()=>{
-//  if(!filteredProducts) setfilteredProducts(Products)
-//    if(category!=undefined)getCategoryData();
-   
-  
-// }
-// ,[category,Products]);
-// console.log(filteredProducts)
+
 
     return Products?(
     <>
